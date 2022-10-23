@@ -5,10 +5,12 @@ import 'firebase_options.dart';
 import 'screen/chat_scrren.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+  } catch (e) {
+    print('Have error');
+  }
   runApp(MyApp());
 }
 
