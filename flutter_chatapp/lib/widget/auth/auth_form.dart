@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
-  const AuthForm({super.key});
+  AuthForm(
+    this.submitFn,
+  );
+
+  final void Function(
+    String email,
+    String password,
+    String userName,
+    bool isLogin,
+    BuildContext ctx,
+  ) submitFn;
 
   @override
   State<AuthForm> createState() => _AuthFormState();
@@ -21,10 +31,13 @@ class _AuthFormState extends State<AuthForm> {
 
     if (isValid) {
       _formKey.currentState!.save();
-      print(_userEmail);
-      print(_userName);
-      print(_userPassword);
-      //Firebaseにデータが送れるように実装する
+      widget.submitFn(
+        _userEmail,
+        _userName,
+        _userPassword,
+        _isLogin,
+        context,
+      );
     }
   }
 
