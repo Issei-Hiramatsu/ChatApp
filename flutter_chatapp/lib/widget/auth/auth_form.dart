@@ -31,6 +31,7 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   TextFormField(
                     decoration: InputDecoration(labelText: 'Password'),
+                    obscureText: true, //文字を伏字にする
                   ),
                   SizedBox(height: 12),
                   ElevatedButton(
