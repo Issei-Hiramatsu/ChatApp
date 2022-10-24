@@ -9,9 +9,11 @@ class AuthForm extends StatefulWidget {
 
 class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
-  String _userEmail = '';
-  String _userName = '';
-  String _userPassword = '';
+
+  var _isLogin = true;
+  var _userEmail = '';
+  var _userName = '';
+  var _userPassword = '';
 
   void _trySubmit() {
     final isValid = _formKey.currentState!.validate();
@@ -54,18 +56,19 @@ class _AuthFormState extends State<AuthForm> {
                       _userEmail = value as String;
                     },
                   ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty || value.length < 4) {
-                        return 'Please enter at least 4 characters';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(labelText: 'Username'),
-                    onSaved: (value) {
-                      _userName = value as String;
-                    },
-                  ),
+                  if (!_isLogin)
+                    TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty || value.length < 4) {
+                          return 'Please enter at least 4 characters';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(labelText: 'Username'),
+                      onSaved: (value) {
+                        _userName = value as String;
+                      },
+                    ),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty || value.length < 7) {
@@ -81,17 +84,21 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   SizedBox(height: 12),
                   ElevatedButton(
-                    child: Text('ログイン'),
+                    child: Text(_isLogin ? 'ログイン' : '登録'),
                     onPressed: _trySubmit,
                   ),
                   TextButton(
                     child: Text(
-                      '新規アカウント作成',
+                      _isLogin ? '新規アカウント作成' : 'サインアップ',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        _isLogin = !_isLogin;
+                      });
+                    },
                   ),
                 ],
               ),
