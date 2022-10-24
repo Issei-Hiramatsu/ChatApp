@@ -21,12 +21,14 @@ class _AuthScreenState extends State<AuthScreen> {
     bool isLogin,
     BuildContext ctx,
   ) async {
+    UserCredential userCredential;
+
     try {
       if (isLogin) {
-        await _auth.signInWithEmailAndPassword(
+        userCredential = await _auth.signInWithEmailAndPassword(
             email: email, password: password);
       } else {
-        await _auth.createUserWithEmailAndPassword(
+        userCredential = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
       }
     } on PlatformException catch (err) {
