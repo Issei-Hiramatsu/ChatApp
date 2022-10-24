@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../widget/auth/auth_form.dart';
 
@@ -16,8 +17,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _submitAuthForm(
     String email,
-    String password,
     String username,
+    String password,
     bool isLogin,
     BuildContext ctx,
   ) async {
@@ -26,10 +27,23 @@ class _AuthScreenState extends State<AuthScreen> {
     try {
       if (isLogin) {
         userCredential = await _auth.signInWithEmailAndPassword(
-            email: email, password: password);
+          email: email,
+          password: password,
+        );
       } else {
         userCredential = await _auth.createUserWithEmailAndPassword(
-            email: email, password: password);
+          email: email,
+          password: password,
+        );
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(userCredential.user?.uid)
+            .set(
+          {
+            'username': username,
+            'email': email,
+          },
+        );
       }
     } on PlatformException catch (err) {
       var message = 'エラーが発生しました。認証情報を確認してください。';

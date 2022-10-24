@@ -7,8 +7,8 @@ class AuthForm extends StatefulWidget {
 
   final void Function(
     String email,
-    String password,
     String userName,
+    String password,
     bool isLogin,
     BuildContext ctx,
   ) submitFn;
@@ -90,6 +90,7 @@ class _AuthFormState extends State<AuthForm> {
                       if (value!.isEmpty || value.length < 7) {
                         return 'Password must be at least 7 characters long.';
                       }
+
                       return null;
                     },
                     decoration: InputDecoration(labelText: 'Password'),
