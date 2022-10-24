@@ -67,6 +67,12 @@ class _AuthFormState extends State<AuthForm> {
                     },
                   ),
                   TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty || value.length < 7) {
+                        return 'Password must be at least 7 characters long.';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(labelText: 'Password'),
                     obscureText: true, //文字を伏字にする
                     onSaved: (value) {
