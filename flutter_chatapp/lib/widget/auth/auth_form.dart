@@ -105,7 +105,9 @@ class _AuthFormState extends State<AuthForm> {
                   if (widget.isLoading) CircularProgressIndicator(),
                   if (!widget.isLoading)
                     ElevatedButton(
-                      child: Text(_isLogin ? 'ログイン' : '登録'),
+                      child: Text(
+                        _isLogin ? 'ログイン' : '登録',
+                      ),
                       onPressed: _trySubmit,
                     ),
                   if (!widget.isLoading)
