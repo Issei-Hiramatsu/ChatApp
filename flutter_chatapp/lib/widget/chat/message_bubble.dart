@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 class MessageBubble extends StatelessWidget {
   MessageBubble(
     this.message,
-    this.isMe,
-  );
+    this.isMe, {
+    required this.key,
+  });
 
   final String message;
   final bool isMe;
+  final Key key;
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
       children: [
         Container(
           decoration: BoxDecoration(

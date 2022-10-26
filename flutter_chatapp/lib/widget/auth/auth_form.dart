@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
@@ -108,7 +110,7 @@ class _AuthFormState extends State<AuthForm> {
                       child: Text(
                         _isLogin ? 'ログイン' : '登録',
                       ),
-                      onPressed: _trySubmit,
+                      onPressed: _trySubmit, //_isLogin ? _trySubmit,
                     ),
                   if (!widget.isLoading)
                     TextButton(
