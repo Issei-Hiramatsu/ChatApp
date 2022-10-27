@@ -20,6 +20,7 @@ class _NewMessageState extends State<NewMessage> {
       'userId': user!.uid,
     });
     _controller.clear();
+    _enteredMessage = '';
   }
 
   @override
