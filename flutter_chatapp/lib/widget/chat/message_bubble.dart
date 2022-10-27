@@ -43,9 +43,7 @@ class MessageBubble extends StatelessWidget {
             message,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: isMe
-                  ? Colors.black
-                  : Theme.of(context).textTheme.headline1!.color,
+              color: isMe ? Colors.black : Colors.white,
             ),
           ),
         ),
