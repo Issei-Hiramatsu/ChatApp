@@ -11,13 +11,15 @@ class UserImagePicker extends StatefulWidget {
 }
 
 class _UserImagePickerState extends State<UserImagePicker> {
-  final ImagePicker _picker = ImagePicker();
   File? _pickedImage;
-  void _pickImage() async {
-    final XFile? pickedImageFile =
-        await _picker.pickImage(source: ImageSource.gallery);
+  final picker = ImagePicker();
+
+  Future _pickImage() async {
+    final pickedImageFile = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
-      _pickedImage = pickedImageFile as File;
+      if (pickedImageFile != null) {
+        _pickedImage = File(pickedImageFile.path);
+      }
     });
   }
 
@@ -32,7 +34,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
               _pickedImage != null ? FileImage(_pickedImage!) : null,
         ),
         TextButton.icon(
-          onPressed: () {},
+          onPressed: _pickImage,
           icon: Icon(Icons.image),
           label: Text(
             '画像追加',
