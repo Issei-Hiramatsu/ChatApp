@@ -49,18 +49,18 @@ class _AuthFormState extends State<AuthForm> {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
               key: _formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  UserImagePicker(),
+                  const UserImagePicker(),
                   TextFormField(
-                    key: ValueKey('email'),
+                    key: const ValueKey('email'),
                     validator: (value) {
                       if (value!.isEmpty || !value.contains('@')) {
                         return 'Please enter a valid email address.';
@@ -68,7 +68,7 @@ class _AuthFormState extends State<AuthForm> {
                       return null;
                     },
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email address',
                     ),
                     onSaved: (value) {
@@ -77,20 +77,20 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   if (!_isLogin)
                     TextFormField(
-                      key: ValueKey('username'),
+                      key: const ValueKey('username'),
                       validator: (value) {
                         if (value!.isEmpty || value.length < 4) {
                           return 'Please enter at least 4 characters';
                         }
                         return null;
                       },
-                      decoration: InputDecoration(labelText: 'Username'),
+                      decoration: const InputDecoration(labelText: 'Username'),
                       onSaved: (value) {
                         _userName = value as String;
                       },
                     ),
                   TextFormField(
-                    key: ValueKey('password'),
+                    key: const ValueKey('password'),
                     validator: (value) {
                       if (value!.isEmpty || value.length < 7) {
                         return 'Password must be at least 7 characters long.';
@@ -98,14 +98,14 @@ class _AuthFormState extends State<AuthForm> {
 
                       return null;
                     },
-                    decoration: InputDecoration(labelText: 'Password'),
+                    decoration: const InputDecoration(labelText: 'Password'),
                     obscureText: true, //文字を伏字にする
                     onSaved: (value) {
                       _userPassword = value as String;
                     },
                   ),
-                  SizedBox(height: 12),
-                  if (widget.isLoading) CircularProgressIndicator(),
+                  const SizedBox(height: 12),
+                  if (widget.isLoading) const CircularProgressIndicator(),
                   if (!widget.isLoading)
                     ElevatedButton(
                       child: Text(

@@ -12,7 +12,7 @@ void main() async {
   } catch (e) {
     print('Have error');
   }
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,9 +38,9 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: ((context, userSnapshot) {
             if (userSnapshot.hasData) {
-              return ChatScreen();
+              return const ChatScreen();
             }
-            return AuthScreen();
+            return const AuthScreen();
           }),
         ));
   }

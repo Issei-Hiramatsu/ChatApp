@@ -32,14 +32,14 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 8),
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.all(8),
       child: Row(
         children: <Widget>[
           Expanded(
             child: TextField(
               controller: _controller,
-              decoration: InputDecoration(labelText: '送信'),
+              decoration: const InputDecoration(labelText: '送信'),
               onChanged: (value) {
                 setState(() {
                   _enteredMessage = value;
@@ -49,7 +49,7 @@ class _NewMessageState extends State<NewMessage> {
           ),
           IconButton(
             color: Theme.of(context).primaryColor,
-            icon: Icon(
+            icon: const Icon(
               Icons.send,
             ),
             onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
