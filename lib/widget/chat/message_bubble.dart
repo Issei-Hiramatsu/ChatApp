@@ -18,7 +18,7 @@ class MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      //clipBehavior: Clip.none,
+      clipBehavior: Clip.none,
       children: [
         Row(
           mainAxisAlignment:
