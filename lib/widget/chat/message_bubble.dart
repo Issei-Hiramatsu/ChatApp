@@ -73,10 +73,12 @@ class MessageBubble extends StatelessWidget {
             ),
           ],
         ),
+        //ゆくゆくはLineみたいなUIに変更する
         Positioned(
-          top: -30,
-          left: 140,
-          child: CircleAvatar(),
+          top: -10,
+          left: isMe ? null : 120,
+          right: isMe ? 120 : null,
+          child: CircleAvatar(backgroundImage: NetworkImage(userImage)),
         ),
       ],
     );
