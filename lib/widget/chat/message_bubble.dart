@@ -4,7 +4,7 @@ class MessageBubble extends StatelessWidget {
   MessageBubble(
     this.message,
     this.userName,
-    this.userImage,
+    //this.userImage,
     this.isMe, {
     required this.key,
   });
@@ -12,7 +12,7 @@ class MessageBubble extends StatelessWidget {
   final String message;
   final bool isMe;
   final String userName;
-  final String userImage;
+  //final String userImage;
   final Key key;
 
   @override
@@ -74,12 +74,12 @@ class MessageBubble extends StatelessWidget {
           ],
         ),
         //ゆくゆくはLineみたいなUIに変更する
-        Positioned(
-          top: 0,
-          left: isMe ? null : 120,
-          right: isMe ? 120 : null,
-          child: CircleAvatar(backgroundImage: NetworkImage(userImage)),
-        ),
+        // Positioned(
+        //   top: 0,
+        //   left: isMe ? null : 120,
+        //   right: isMe ? 120 : null,
+        //   child: CircleAvatar(backgroundImage: NetworkImage(userImage)),
+        // ),
       ],
     );
   }
