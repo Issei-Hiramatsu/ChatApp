@@ -12,6 +12,9 @@ PODS:
   - Firebase/Firestore (10.0.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.0.0)
+  - Firebase/Messaging (10.0.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 10.0.0)
   - Firebase/Storage (10.0.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.0.0)
@@ -21,6 +24,10 @@ PODS:
     - Flutter
   - firebase_core (2.1.1):
     - Firebase/CoreOnly (= 10.0.0)
+    - Flutter
+  - firebase_messaging (14.0.4):
+    - Firebase/Messaging (= 10.0.0)
+    - firebase_core
     - Flutter
   - firebase_storage (11.0.4):
     - Firebase/Storage (= 10.0.0)
@@ -49,6 +56,20 @@ PODS:
   - FirebaseFirestore/Base (10.0.0)
   - FirebaseFirestore/WithLeveldb (10.0.0):
     - FirebaseFirestore/Base
+  - FirebaseInstallations (10.3.0):
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - PromisesObjC (~> 2.1)
+  - FirebaseMessaging (10.0.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Reachability (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseStorage (10.0.0):
     - FirebaseAppCheckInterop (~> 10.0)
     - FirebaseAuthInterop (~> 10.0)
@@ -56,6 +77,10 @@ PODS:
     - FirebaseCoreExtension (~> 10.0)
     - GTMSessionFetcher/Core (~> 2.1)
   - Flutter (1.0.0)
+  - GoogleDataTransport (9.2.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/AppDelegateSwizzler (7.8.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -71,6 +96,8 @@ PODS:
   - "GoogleUtilities/NSData+zlib (7.8.0)"
   - GoogleUtilities/Reachability (7.8.0):
     - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.8.0):
+    - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (2.1.0)
   - image_picker_ios (0.0.1):
     - Flutter
@@ -85,6 +112,7 @@ DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `10.0.0`)
   - Flutter (from `Flutter`)
@@ -99,7 +127,10 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreExtension
     - FirebaseCoreInternal
+    - FirebaseInstallations
+    - FirebaseMessaging
     - FirebaseStorage
+    - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
@@ -112,6 +143,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
+  firebase_messaging:
+    :path: ".symlinks/plugins/firebase_messaging/ios"
   firebase_storage:
     :path: ".symlinks/plugins/firebase_storage/ios"
   FirebaseFirestore:
@@ -132,6 +165,7 @@ SPEC CHECKSUMS:
   Firebase: 1b810f3d0c0532e27a48f1961f8c0400a668a2cf
   firebase_auth: dd33e93fce72a1c72040f7380dacf06e89db5705
   firebase_core: 5c0bb0ca7d0e70480a68a6e9ad9bf55d1edd5305
+  firebase_messaging: bf848602391fa6ee68d86e337f81be14be120aaf
   firebase_storage: 5cf5e677fd9793e26ec5d006100c25e28cd21c05
   FirebaseAppCheckInterop: 53eec3c354a95f8fe6ff947dd9518ea17f624914
   FirebaseAuth: 493382cf533cc45e2862b00e9aa4cfe4c98daf71
@@ -140,8 +174,11 @@ SPEC CHECKSUMS:
   FirebaseCoreExtension: 69b966c399abc4ca6dc75006ab87160f81512725
   FirebaseCoreInternal: 96d75228e10fd369564da51bd898414eb0f54df5
   FirebaseFirestore: 078f25cdb382aef05be4c116942c74c3cacbb8d4
+  FirebaseInstallations: e2f26126089dcf41e215f7b8925af8d953c7d602
+  FirebaseMessaging: 8916bf5edb1dbfac74665a181e4d1ab3a78a08a2
   FirebaseStorage: 8b0b0630e11b9f3e4a479a26cfccb70ec790ec50
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
   GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
   image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb

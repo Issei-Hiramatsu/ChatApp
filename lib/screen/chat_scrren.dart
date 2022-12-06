@@ -21,14 +21,12 @@ class ChatScreen extends StatelessWidget {
             items: [
               DropdownMenuItem(
                 value: 'logout',
-                child: Container(
-                  child: Row(
-                    children: const <Widget>[
-                      Icon(Icons.exit_to_app),
-                      SizedBox(width: 8),
-                      Text('Logout'),
-                    ],
-                  ),
+                child: Row(
+                  children: const <Widget>[
+                    Icon(Icons.exit_to_app),
+                    SizedBox(width: 8),
+                    Text('Logout'),
+                  ],
                 ),
               ),
             ],
@@ -43,7 +41,7 @@ class ChatScreen extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               child: Messages(),
             ),
             NewMessage()

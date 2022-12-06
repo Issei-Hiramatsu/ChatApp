@@ -41,7 +41,7 @@ class _AuthFormState extends State<AuthForm> {
     if (_userImageFile == null && !_isLogin) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('画像を追加してください'),
+          content: const Text('画像を追加してください'),
           backgroundColor: Theme.of(context).errorColor,
         ),
       );
