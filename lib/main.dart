@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'screen/auth_screen.dart';
-import '/screen/chat_scrren.dart';
+import 'auth_keep/auth_screen.dart';
+import 'view/page/chat_scrren.dart';
 
 void main() async {
   try {
