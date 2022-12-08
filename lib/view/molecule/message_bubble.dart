@@ -11,7 +11,6 @@ class MessageBubble extends StatelessWidget {
     required this.textColor,
     required this.message,
     required this.userName,
-    required this.key,
   });
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
@@ -21,7 +20,6 @@ class MessageBubble extends StatelessWidget {
   final String message;
   final String userName;
   //final String userImage;
-  final Key key;
 
   @override
   Widget build(BuildContext context) {

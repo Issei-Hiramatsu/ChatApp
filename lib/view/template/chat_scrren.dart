@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import '../atom/logout.dart';
 import '../moleure/message_bubble.dart';
-import '../moleure/send_message_field.dart';
 
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
-
+class ChatTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +14,35 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: Column(
-        children: [],
+        children: [
+          MessageBubble(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            messageTextAlign: TextAlign.start,
+            backgroundColor: Colors.purple,
+            textColor: Colors.white,
+            message: '図書館で作業中',
+            userName: 'Issei',
+          ),
+          MessageBubble(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            messageTextAlign: TextAlign.start,
+            backgroundColor: Colors.purple,
+            textColor: Colors.white,
+            message: '図書館で作業中',
+            userName: 'Issei',
+          ),
+          MessageBubble(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            messageTextAlign: TextAlign.start,
+            backgroundColor: Colors.purple,
+            textColor: Colors.white,
+            message: '図書館で作業中',
+            userName: 'Issei',
+          ),
+        ],
       ),
     );
   }
