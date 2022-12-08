@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../atom/logout.dart';
-import '../moleure/send_message_field.dart';
+import '../molecule/send_message_field.dart';
 import 'new_message.dart';
 
 class ChatScreen extends StatelessWidget {

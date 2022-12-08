@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../atom/logout.dart';
-import '../moleure/message_bubble.dart';
+import '../molecule/message_bubble.dart';
+import '../molecule/send_message_field.dart';
 
 class ChatTemplate extends StatelessWidget {
   @override
@@ -41,6 +42,10 @@ class ChatTemplate extends StatelessWidget {
             textColor: Colors.white,
             message: '図書館で作業中',
             userName: 'Issei',
+          ),
+          const Spacer(),
+          SendMessageField(
+            onPressed: () {},
           ),
         ],
       ),
