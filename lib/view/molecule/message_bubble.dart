@@ -2,18 +2,26 @@ import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
   MessageBubble(
-    this.message,
-    this.userName,
-    //this.userImage,
-    this.isMe, {
-    required this.key,
+      //this.userImage,
+      {
+    required this.mainAxisAlignment,
+    required this.crossAxisAlignment,
+    required this.messageTextAlign,
+    required this.borderRadius,
+    required this.backgroundColor,
+    required this.textColor,
+    required this.message,
+    required this.userName,
   });
-
+  final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
+  final TextAlign messageTextAlign;
+  final BorderRadius borderRadius;
+  final Color backgroundColor;
+  final Color textColor;
   final String message;
-  final bool isMe;
   final String userName;
   //final String userImage;
-  final Key key;
 
   @override
   Widget build(BuildContext context) {
@@ -21,24 +29,22 @@ class MessageBubble extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Row(
-          mainAxisAlignment:
-              isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+          mainAxisAlignment: mainAxisAlignment,
           children: [
             Container(
               decoration: BoxDecoration(
-                color: isMe
-                    ? Colors.grey[300]
-                    : Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.only(
-                  topLeft: const Radius.circular(12),
-                  topRight: const Radius.circular(12),
-                  bottomLeft: !isMe
-                      ? const Radius.circular(0)
-                      : const Radius.circular(12),
-                  bottomRight: isMe
-                      ? const Radius.circular(0)
-                      : const Radius.circular(12),
-                ),
+                color: backgroundColor,
+                borderRadius: borderRadius,
+                // borderRadius: BorderRadius.only(
+                //   topLeft: const Radius.circular(12),
+                //   topRight: const Radius.circular(12),
+                //   bottomLeft: !isMe
+                //       ? const Radius.circular(0)
+                //       : const Radius.circular(12),
+                //   bottomRight: isMe
+                //       ? const Radius.circular(0)
+                //       : const Radius.circular(12),
+                // )
               ),
               width: 140,
               padding: const EdgeInsets.symmetric(
@@ -50,23 +56,22 @@ class MessageBubble extends StatelessWidget {
                 horizontal: 8,
               ),
               child: Column(
-                crossAxisAlignment:
-                    isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                crossAxisAlignment: crossAxisAlignment,
                 children: [
                   Text(
                     userName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: isMe ? Colors.black : Colors.white,
+                      color: textColor,
                     ),
                   ),
                   Text(
                     message,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: isMe ? Colors.black : Colors.white,
+                      color: textColor,
                     ),
-                    textAlign: isMe ? TextAlign.end : TextAlign.start,
+                    textAlign: messageTextAlign,
                   ),
                 ],
               ),
