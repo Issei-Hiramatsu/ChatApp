@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_chatapp/view/token/color_screm.dart';
 
 class NewMessage extends StatefulWidget {
   @override
@@ -48,7 +49,7 @@ class _NewMessageState extends State<NewMessage> {
             ),
           ),
           IconButton(
-            color: Theme.of(context).primaryColor,
+            color: colorScheme.primary,
             icon: const Icon(
               Icons.send,
             ),

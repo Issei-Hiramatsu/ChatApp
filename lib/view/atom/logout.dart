@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatapp/view/token/color_screm.dart';
 
 class LogOutBottomDropDownButton extends StatelessWidget {
   @override
@@ -6,7 +7,7 @@ class LogOutBottomDropDownButton extends StatelessWidget {
     return DropdownButton(
       icon: Icon(
         Icons.more_vert,
-        color: Theme.of(context).primaryIconTheme.color,
+        color: colorScheme.background,
       ),
       items: [
         DropdownMenuItem(

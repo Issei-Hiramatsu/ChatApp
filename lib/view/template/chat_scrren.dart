@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../atom/logout.dart';
 import '../molecule/message_bubble.dart';
 import '../molecule/send_message_field.dart';
-import '../organism/tmp_message_bubble.dart';
+import '../organism/user_message_bubble.dart';
 
 class ChatTemplate extends StatelessWidget {
   const ChatTemplate({super.key});

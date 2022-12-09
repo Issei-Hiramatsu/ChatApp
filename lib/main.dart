@@ -20,17 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FlutterChat',
-      theme: ThemeData(
-        primaryColor: Colors.pink,
-        backgroundColor: Colors.pink,
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.pink,
-        ).copyWith(
-          secondary: Colors.deepPurple,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.pink)),
-      ),
+      theme: ThemeData(brightness: Brightness.light),
+
       home: const ChatTemplate(),
       //  StreamBuilder(
       //   stream: FirebaseAuth.instance.authStateChanges(),

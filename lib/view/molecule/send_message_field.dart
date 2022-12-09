@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatapp/view/token/color_screm.dart';
 
 class SendMessageField extends StatelessWidget {
   SendMessageField({
@@ -22,7 +23,7 @@ class SendMessageField extends StatelessWidget {
             ),
           ),
           IconButton(
-            color: Theme.of(context).primaryColor,
+            color: colorScheme.primary,
             icon: const Icon(Icons.send),
             onPressed: () {
               onPressed;

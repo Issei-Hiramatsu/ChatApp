@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/view/molecule/message_bubble.dart';
+import 'package:flutter_chatapp/view/token/color_screm.dart';
 
 class UserMessageBubble extends StatelessWidget {
   UserMessageBubble(
@@ -23,8 +24,8 @@ class UserMessageBubble extends StatelessWidget {
         bottomRight:
             isMe ? const Radius.circular(0) : const Radius.circular(12),
       ),
-      backgroundColor: isMe ? Colors.purple : Colors.grey,
-      textColor: isMe ? Colors.white : Colors.black,
+      backgroundColor: isMe ? colorScheme.secondary : colorScheme.surface,
+      textColor: isMe ? colorScheme.onPrimary : colorScheme.onBackground,
       message: '図書館で作業中',
       userName: 'Issei',
     );
