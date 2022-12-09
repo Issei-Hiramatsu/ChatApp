@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatapp/view/token/color_screm.dart';
 
 import '../atom/logout.dart';
 import '../molecule/message_bubble.dart';
@@ -13,6 +14,7 @@ class ChatTemplate extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Chat'),
+        backgroundColor: colorScheme.primary,
         actions: [
           LogOutBottomDropDownButton(),
         ],
