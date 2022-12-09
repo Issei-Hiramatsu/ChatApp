@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import '../atom/logout.dart';
 import '../molecule/message_bubble.dart';
 import '../molecule/send_message_field.dart';
+import '../organism/tmp_message_bubble.dart';
 
 class ChatTemplate extends StatelessWidget {
+  const ChatTemplate({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,33 +19,9 @@ class ChatTemplate extends StatelessWidget {
       ),
       body: Column(
         children: [
-          MessageBubble(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            messageTextAlign: TextAlign.start,
-            backgroundColor: Colors.purple,
-            textColor: Colors.white,
-            message: '図書館で作業中',
-            userName: 'Issei',
-          ),
-          MessageBubble(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            messageTextAlign: TextAlign.start,
-            backgroundColor: Colors.purple,
-            textColor: Colors.white,
-            message: '図書館で作業中',
-            userName: 'Issei',
-          ),
-          MessageBubble(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            messageTextAlign: TextAlign.start,
-            backgroundColor: Colors.purple,
-            textColor: Colors.white,
-            message: '図書館で作業中',
-            userName: 'Issei',
-          ),
+          UserMessageBubble(false),
+          UserMessageBubble(false),
+          UserMessageBubble(true),
           const Spacer(),
           SendMessageField(
             onPressed: () {},

@@ -7,6 +7,7 @@ class MessageBubble extends StatelessWidget {
     required this.mainAxisAlignment,
     required this.crossAxisAlignment,
     required this.messageTextAlign,
+    required this.borderRadius,
     required this.backgroundColor,
     required this.textColor,
     required this.message,
@@ -15,6 +16,7 @@ class MessageBubble extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
   final TextAlign messageTextAlign;
+  final BorderRadius borderRadius;
   final Color backgroundColor;
   final Color textColor;
   final String message;
@@ -32,6 +34,7 @@ class MessageBubble extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 color: backgroundColor,
+                borderRadius: borderRadius,
                 // borderRadius: BorderRadius.only(
                 //   topLeft: const Radius.circular(12),
                 //   topRight: const Radius.circular(12),
@@ -41,7 +44,7 @@ class MessageBubble extends StatelessWidget {
                 //   bottomRight: isMe
                 //       ? const Radius.circular(0)
                 //       : const Radius.circular(12),
-                // ),
+                // )
               ),
               width: 140,
               padding: const EdgeInsets.symmetric(

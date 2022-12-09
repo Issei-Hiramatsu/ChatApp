@@ -1,10 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_chatapp/view/template/chat_scrren.dart';
-
-import 'auth_keep/auth_screen.dart';
-import 'view/page/chat_scrren.dart';
 
 void main() async {
   try {
@@ -35,7 +31,7 @@ class MyApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.pink)),
       ),
-      home: ChatTemplate(),
+      home: const ChatTemplate(),
       //  StreamBuilder(
       //   stream: FirebaseAuth.instance.authStateChanges(),
       //   builder: ((context, userSnapshot) {
