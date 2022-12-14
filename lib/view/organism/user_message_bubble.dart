@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/view/molecule/message_bubble.dart';
 import 'package:flutter_chatapp/view/token/color_screm.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class UserMessageBubble extends StatelessWidget {
-  UserMessageBubble(
-    this.isMe,
-  );
+import '../../use_case/model/user_model.dart';
 
+class UserMessageBubble extends HookConsumerWidget {
+  UserMessageBubble({
+    required this.isMe,
+    this.userModel,
+  });
+
+  final UserModel? userModel;
   final bool isMe;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MessageBubble(
       mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
       crossAxisAlignment:
