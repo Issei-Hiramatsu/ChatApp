@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/view/token/color_screm.dart';
 
 import '../atom/logout.dart';
-import '../molecule/message_bubble.dart';
 import '../molecule/send_message_field.dart';
 import '../organism/user_message_bubble.dart';
 
@@ -21,9 +20,9 @@ class ChatTemplate extends StatelessWidget {
       ),
       body: Column(
         children: [
-          UserMessageBubble(false),
-          UserMessageBubble(false),
-          UserMessageBubble(true),
+          UserMessageBubble(isMe: true),
+          UserMessageBubble(isMe: true),
+          UserMessageBubble(isMe: false),
           const Spacer(),
           SendMessageField(
             onPressed: () {},
