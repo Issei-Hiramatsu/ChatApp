@@ -1,11 +1,7 @@
-class Todo {
-  Todo({
-    required this.id,
-    required this.description,
-    required this.completed,
+class UserModel {
+  UserModel({
+    required this.isMe,
   });
 
-  String id;
-  String description;
-  bool completed;
+  bool isMe;
 }
