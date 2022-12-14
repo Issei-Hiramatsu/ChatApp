@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../model/user_model.dart';
+import '../model/todo_model.dart';
 
 class TodosNotifier extends ChangeNotifier {
   final todos = <Todo>[

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../atom/logout.dart';
-import '../molecule/send_message_field.dart';
-import 'new_message.dart';
+import '../../atom/logout.dart';
+import '../../molecule/send_message_field.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});

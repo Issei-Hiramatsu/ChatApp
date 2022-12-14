@@ -1,17 +1,20 @@
-// import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter/material.dart';
 
-// class LoginState extends StateNotifier<bool> {
-//   LoginState() : super(true);
+import '../model/user_model.dart';
 
-//   void changeLogin(isMe) {
-//     isMe = !isMe;
-//   }
-// }
+class UserNotifier extends ChangeNotifier {
+  final userModel = <UserModel>[
+    UserModel(isMe: true),
+    UserModel(isMe: true),
+    UserModel(isMe: true),
+    UserModel(isMe: true),
+  ];
 
+  // UI 側から UserModel アイテムを追加できるようにする
 
-// class CounterNotifier extends StateNotifier<bool> {
-//   CounterNotifier(bool isMe) : super(isMe);
-//   void increment(isMe) {
-//     isMe = !isMe;
-//   }
-// }
+  // UserModel の完了ステータスの変更
+  void changeLoginUser(isMe) {
+    isMe = !isMe;
+    notifyListeners();
+  }
+}

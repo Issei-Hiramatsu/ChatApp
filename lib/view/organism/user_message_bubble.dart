@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/view/molecule/message_bubble.dart';
 import 'package:flutter_chatapp/view/token/color_screm.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../use_case/model/user_model.dart';
 
 class UserMessageBubble extends HookConsumerWidget {
   UserMessageBubble({
     required this.isMe,
-    this.userModel,
   });
 
-  final UserModel? userModel;
   final bool isMe;
 
   @override

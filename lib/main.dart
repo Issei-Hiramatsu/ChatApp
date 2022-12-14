@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'view/page/chat/chat_page.dart';
 import 'view/page/todo_page.dart';
 
 void main() async {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'FlutterChat',
       theme: ThemeData(brightness: Brightness.light),
 
-      home: const TodoListViewPage(),
+      home: const ChatPage(),
       //  StreamBuilder(
       //   stream: FirebaseAuth.instance.authStateChanges(),
       //   builder: ((context, userSnapshot) {
