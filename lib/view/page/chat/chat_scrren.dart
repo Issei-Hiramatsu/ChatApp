@@ -17,56 +17,54 @@ class ChatScreen extends StatelessWidget {
           LogOutBottomDropDownButton(),
         ],
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Expanded(
-              child: StreamBuilder(
-                stream: FirebaseFirestore.instance
-                    .collection('chat')
-                    .orderBy(
-                      'createdAt',
-                      descending: true,
-                    )
-                    .snapshots(),
-                builder: (ctx, chatSnapshot) {
-                  if (chatSnapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  final chatDocs = chatSnapshot.data?.docs;
-                  return StreamBuilder(
-                    stream: FirebaseAuth.instance.authStateChanges(),
-                    builder: ((ctx, futureSnapshot) {
-                      if (futureSnapshot.connectionState ==
-                          ConnectionState.waiting) {
-                        return (const Center(
-                          child: CircularProgressIndicator(),
-                        ));
-                      }
-                      return Container();
-                      // ListView.builder(
-                      //   reverse: true,
-                      //   itemCount: chatSnapshot.data?.docs.length,
-                      //   itemBuilder: (context, index) => MessageBubble(
-                      //     chatDocs?[index]['text'],
-                      //     chatDocs?[index]['username'],
-                      //     //chatDocs?[index]['userImage'],
-                      //     chatDocs?[index]['userId'] == futureSnapshot.data!.uid,
-                      //     key: ValueKey(chatDocs?[index].id),
-                      //   ),
-                      // );
-                    }),
+      body: Column(
+        children: [
+          Expanded(
+            child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('chat')
+                  .orderBy(
+                    'createdAt',
+                    descending: true,
+                  )
+                  .snapshots(),
+              builder: (ctx, chatSnapshot) {
+                if (chatSnapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
                   );
-                },
-              ),
+                }
+                final chatDocs = chatSnapshot.data?.docs;
+                return StreamBuilder(
+                  stream: FirebaseAuth.instance.authStateChanges(),
+                  builder: ((ctx, futureSnapshot) {
+                    if (futureSnapshot.connectionState ==
+                        ConnectionState.waiting) {
+                      return (const Center(
+                        child: CircularProgressIndicator(),
+                      ));
+                    }
+                    return Container();
+                    // ListView.builder(
+                    //   reverse: true,
+                    //   itemCount: chatSnapshot.data?.docs.length,
+                    //   itemBuilder: (context, index) => MessageBubble(
+                    //     chatDocs?[index]['text'],
+                    //     chatDocs?[index]['username'],
+                    //     //chatDocs?[index]['userImage'],
+                    //     chatDocs?[index]['userId'] == futureSnapshot.data!.uid,
+                    //     key: ValueKey(chatDocs?[index].id),
+                    //   ),
+                    // );
+                  }),
+                );
+              },
             ),
-            SendMessageField(
-              onPressed: () {},
-            )
-          ],
-        ),
+          ),
+          SendMessageField(
+            onPressed: () {},
+          )
+        ],
       ),
     );
   }

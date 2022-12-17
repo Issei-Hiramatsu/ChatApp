@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'FlutterChat',
       theme: ThemeData(brightness: Brightness.light),
 
-      home: const ChatPage(),
+      home: const TodoListViewPage(),
       //  StreamBuilder(
       //   stream: FirebaseAuth.instance.authStateChanges(),
       //   builder: ((context, userSnapshot) {

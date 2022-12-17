@@ -1,20 +1,28 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-import '../model/user_model.dart';
+// import '../model/user_model.dart';
 
-class UserNotifier extends ChangeNotifier {
-  final userModel = <UserModel>[
-    UserModel(isMe: true),
-    UserModel(isMe: true),
-    UserModel(isMe: true),
-    UserModel(isMe: true),
-  ];
+// class UserNotifier extends ChangeNotifier {
+//   final List<UserModel> _userModel = [
+//     UserModel(isMe: true, userName: 'Issei', message: 'Hi'),
+//     UserModel(isMe: true, userName: 'Issei', message: 'Yay'),
+//     UserModel(isMe: false, userName: 'Rummy', message: 'Cya!'),
+//   ];
 
-  // UI 側から UserModel アイテムを追加できるようにする
+//  List<UserModel> get items {
+//     return [..._userModel];
+//   }
+//   // UserModel の完了ステータスの変更
+//   void changeLoginUser() {
+//     _userModel.
+//      = !isMe;
+//     notifyListeners();
+//   }
+// }
 
-  // UserModel の完了ステータスの変更
-  void changeLoginUser(isMe) {
-    isMe = !isMe;
-    notifyListeners();
-  }
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+class Background extends StateNotifier<bool> {
+  Background() : super(true);
+  void changeBackground(isMe) => isMe = !isMe;
 }
