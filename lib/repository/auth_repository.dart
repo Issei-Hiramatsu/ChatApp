@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_chatapp/repository/custom_exception.dart';
 import 'package:flutter_chatapp/repository/general_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -8,6 +9,9 @@ abstract class BaseAuthRepository {
   User? getCurrentUser(); //現在サインインしているユーザ
   Future<void> signOut(); //サインアウト
 }
+
+final authRepositoryProvider =
+    Provider<AuthRepository>((ref) => AuthRepository(ref));
 
 class AuthRepository implements BaseAuthRepository {
   final Ref _read; //データの取得＆更新よう　元がReaderなどで若干変わるかも?
@@ -20,17 +24,29 @@ class AuthRepository implements BaseAuthRepository {
 
   @override
   Future<void> signInAnonymously() async {
-    await _read.read(firebaseAuthProvider).signInAnonymously();
+    try {
+      await _read.read(firebaseAuthProvider).signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      throw CustomException(message: e.message);
+    }
   }
 
   @override
   User? getCurrentUser() {
-    return _read.read(firebaseAuthProvider).currentUser;
+    try {
+      return _read.read(firebaseAuthProvider).currentUser;
+    } on FirebaseAuthException catch (e) {
+      throw CustomException(message: e.message);
+    }
   }
 
   @override
   Future<void> signOut() async {
-    await _read.read(firebaseAuthProvider).signOut();
-    await signInAnonymously();
+    try {
+      await _read.read(firebaseAuthProvider).signOut();
+      await signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      throw CustomException(message: e.message);
+    }
   }
 }
