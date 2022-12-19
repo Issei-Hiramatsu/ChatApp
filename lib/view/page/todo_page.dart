@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../use_case/model/todo_model.dart';
+import '../../domain/model/todo_model.dart';
 import '../../use_case/state/todo_state.dart';
 
 // 最後に ChangeNotifierProvider を通じて UI 側から

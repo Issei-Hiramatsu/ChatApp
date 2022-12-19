@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../model/todo_model.dart';
+import '../../domain/model/todo_model.dart';
 
 class TodosNotifier extends ChangeNotifier {
   final todos = <Todo>[
