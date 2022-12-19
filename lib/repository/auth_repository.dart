@@ -10,6 +10,10 @@ abstract class BaseAuthRepository {
   Future<void> signOut(); //サインアウト
 }
 
+//TODO それぞれの関数の意味を知らべていく
+//まとめた上でコミット　そして
+//遅くとも午後には Freezed初　使用！！
+
 final authRepositoryProvider =
     Provider<AuthRepository>((ref) => AuthRepository(ref));
 
